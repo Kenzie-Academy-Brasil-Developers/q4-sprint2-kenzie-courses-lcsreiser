@@ -13,6 +13,7 @@ courseRouter.post(
   validateSchema(courseSchema),
   courseController.createCourse
 );
+courseRouter.post("/courses/:id/users", validateToken, courseController.relationUser)
 courseRouter.patch(
   "/courses/:id",
   validateToken,

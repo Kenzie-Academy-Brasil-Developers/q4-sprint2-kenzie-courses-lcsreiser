@@ -1,5 +1,5 @@
 import { Repository, UpdateResult } from "typeorm";
-import { AppDataSource } from "../data-source";
+import AppDataSource from "../data-source";
 import { User } from "../entities";
 
 interface IUserRepo {

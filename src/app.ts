@@ -3,9 +3,17 @@ import express, { NextFunction, Request, Response } from "express";
 import { errorHandler } from "./errors/errors";
 import registerRouters from "./routes";
 
+import swaggerUiExpress from "swagger-ui-express";
+import swaggerDocument from "./swagger.json";
+
 const app = express();
 
 app.use(express.json());
+app.use(
+  "/api-documentation",
+  swaggerUiExpress.serve,
+  swaggerUiExpress.setup(swaggerDocument)
+);
 registerRouters(app);
 
 app.use((err: Error, _: Request, res: Response, __: NextFunction) => {
